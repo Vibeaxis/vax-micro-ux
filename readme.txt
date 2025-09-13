@@ -15,8 +15,8 @@ Most “Back to Top” widgets ship 30KB to do a native anchor jump. This one do
 
 **VAX Micro UX** adds a small Back-to-Top button **only on long posts** (default: 900+ words). It’s **mobile-first**, ships **zero JavaScript**, uses CSS `scroll-behavior` (and **disables** it for `prefers-reduced-motion`), and includes an inline SVG icon that inherits your theme color.
 
-- **Plugin homepage:** https://vibeaxis.com/plugins/vax-micro-ux/
-- **GitHub (latest ZIP):** https://github.com/ViableOutreach/vax-micro-ux/releases/latest/download/vax-micro-ux.zip
+- **Plugin homepage:** https://vibeaxis.com/vax-micro-ux/
+- **GitHub (latest ZIP):** https://github.com/Vibeaxis/vax-micro-ux/releases/latest/download/vax-micro-ux.zip
 
 Privacy-friendly by default: no tracking, no remote calls, no options table writes.
 
