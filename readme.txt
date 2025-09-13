@@ -67,7 +67,7 @@ Arrow is visible on dark themes; metadata cleaned up. Safe to update.
 
 == Links ==
 
-Homepage: https://vibeaxis.com/plugins/vax-micro-ux/
+Homepage: https://vibeaxis.com//vax-micro-ux/
 
 GitHub: https://github.com/Vibeaxis/vax-micro-ux
 
