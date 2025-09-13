@@ -22,7 +22,7 @@ Privacy-friendly by default: no tracking, no remote calls, no options table writ
 
 == Installation ==
 1. **Download** the ZIP from GitHub:  
-   https://github.com/ViableOutreach/vax-micro-ux/releases/latest/download/vax-micro-ux.zip
+   https://github.com/Vibeaxis/vax-micro-ux/releases/latest/download/vax-micro-ux.zip
 2. In WordPress, go to **Plugins → Add New → Upload Plugin**, choose the ZIP, and **Activate**.
 3. View a long post on mobile (or narrow your browser). The button appears bottom-right.
 
