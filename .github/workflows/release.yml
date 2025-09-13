@@ -1,0 +1,40 @@
+name: Build & Release ZIP
+
+on:
+  push:
+    tags:
+      - 'v*'     # tag like v1.0.3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compute version / zip name
+        id: meta
+        run: |
+          TAG="${GITHUB_REF##*/}"
+          NAME="vax-micro-ux"
+          ZIP="${NAME}.zip"
+          echo "tag=${TAG}" >> $GITHUB_OUTPUT
+          echo "zip=${ZIP}" >> $GITHUB_OUTPUT
+
+      - name: Create plugin ZIP
+        run: |
+          mkdir -p dist
+          zip -r "dist/${{ steps.meta.outputs.zip }}" \
+            vax-micro-ux.php readme.txt LICENSE
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag }}
+          name: ${{ steps.meta.outputs.tag }}
+          draft: false
+          prerelease: false
+          files: dist/${{ steps.meta.outputs.zip }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
