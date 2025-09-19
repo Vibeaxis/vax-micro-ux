@@ -1,3 +1,9 @@
+[![Website](https://img.shields.io/badge/docs-website-blue.svg)](https://slop-index.pages.dev/)
+[![Live Demo](https://img.shields.io/badge/demo-HuggingFace-blue.svg)](https://huggingface.co/spaces/Vibeaxis/Slop-Index-Lite)
+
+**Slop Index** — on-page slop detector (clichés, hedges, repetition, sentence bloat).  
+Docs/overview → https://slop-index.pages.dev/
+
 # vax-micro-ux
 VAX Micro UX (our new “Back to Top” that ships zero JS) is the first in a line of plugins designed to be aggressively unexciting.
 # VAX Micro UX — Back to Top (No JS)
