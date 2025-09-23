@@ -62,19 +62,37 @@ add_action('wp_enqueue_scripts', function(){
   ";
   wp_add_inline_style('vax-micro-ux', $css);
 }, 20);
-// --- Auto-updates from GitHub (no wp.org required) ---
-if ( ! class_exists( 'Puc_v4_Factory' ) ) {
-    require __DIR__ . '/plugin-update-checker/plugin-update-checker.php';
-}
+// --- Auto-updates from GitHub (no wp.org) ---
+(function () {
+    $puc = __DIR__ . '/plugin-update-checker/plugin-update-checker.php';
+    if ( ! class_exists('Puc_v5_Factory') && ! class_exists('Puc_v4_Factory') ) {
+        if ( file_exists($puc) ) {
+            require $puc;
+        } else {
+            return; // library not installed — fail quietly, no fatal
+        }
+    }
 
-$vxmu_update = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/vibeaxis/vax-micro-ux/', // your public repo URL
-    __FILE__,                                    // main plugin file
-    'vax-micro-ux'                               // <-- SLUG / text domain
-);
+    $factory = class_exists('Puc_v5_Factory') ? 'Puc_v5_Factory' : 'Puc_v4_Factory';
 
-// If your default branch is "main", keep this. If it's "master", change it.
-$vxmu_update->setBranch('main');
+    /** @var \Puc_v4p*_\Plugin_UpdateChecker|\Puc_v5* $up */
+    $up = $factory::buildUpdateChecker(
+        'https://github.com/vibeaxis/vax-micro-ux/', // repo
+        __FILE__,                                    // main plugin file
+        'vax-micro-ux'                               // <-- your slug / text domain
+    );
 
-// Optional: if you ever go private, you can use a token.
-// $vxmu_update->setAuthentication('ghp_your_token_here');
+    if ( method_exists($up, 'setBranch') ) {
+        $up->setBranch('main'); // change to 'master' if that's your default
+    }
+
+    $api = method_exists($up, 'getVcsApi') ? $up->getVcsApi() : null;
+    if ( $api && method_exists($api, 'enableReleaseAssets') ) {
+        $api->enableReleaseAssets();
+    }
+
+    // If you ever go private, use a token:
+    // $up->setAuthentication('ghp_xxxPERSONALACCESSTOKENxxx');
+})();
+
+
