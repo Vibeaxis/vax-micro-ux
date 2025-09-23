@@ -11,7 +11,6 @@ VAX Micro UX (our new “Back to Top” that ships zero JS) is the first in a li
 A tiny, accessible **Back to Top** for long posts. **Zero JavaScript**, mobile-first, native smooth scroll, respects **reduced motion**.
 
 - **Download:** [Latest ZIP](https://github.com/Vibeaxis/vax-micro-ux/releases/latest/download/vax-micro-ux.zip)
-- **WordPress.org:** https://wordpress.org/plugins/vax-micro-ux/
 
 ## Why
 Stop shipping 30KB of ego to do an anchor jump. Use the platform:
