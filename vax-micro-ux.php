@@ -62,3 +62,10 @@ add_action('wp_enqueue_scripts', function(){
   ";
   wp_add_inline_style('vax-micro-ux', $css);
 }, 20);
+require __DIR__ . '/plugin-update-checker/plugin-update-checker.php';
+$vxmu_update = Puc_v4_Factory::buildUpdateChecker(
+  'https://github.com/vibeaxis/vibeaxis-micro-ux/',
+  __FILE__,
+  'vibeaxis-micro-ux'
+);
+$vxmu_update->setBranch('main'); // or 'master'
